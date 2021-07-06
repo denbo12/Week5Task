@@ -45,8 +45,10 @@ class MainActivity : AppCompatActivity(), ProfileAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        users.get(position)
+        val clickedProfile = users.get(position)
         val intent: Intent = Intent(this, ProfilePageActivity::class.java)
+        intent.putExtra("surname", clickedProfile.userLastName)
+        intent.putExatra("otherNames", clickedProfile.userOtherNames)
         startActivity(intent)
     }
 }
